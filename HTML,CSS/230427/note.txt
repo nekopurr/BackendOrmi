@@ -1,0 +1,189 @@
+select
+- 옵션 메뉴 제공
+    > multiple : 동시 선택 가능
+    > size : 한번에 노출되는 항목의 수
+    > required : 선택 필수
+    > disabled : 선택 불가
+
+option
+- 메뉴의 각 옵션 정의
+    > selected : 맨 위에 노출될 옵션
+
+fieldset
+- form 관련 요소를 묶을 때 사용
+- disabled를 사용해서 모든 자손 컨트롤 비활성화 가능
+    > legend : 그룹의 제목을 제공
+
+textarea
+- 여러줄의 text를 입력받을 수 있음
+- cols와 rows로 크기를 조절할 수 있지만, css로 조절하는 편
+
+
+table
+- 테이블을 생성할 때 사용
+    > tr : 행
+    > th : 행, 제목
+    > td : 셀 내용
+
+caption
+- 테이블의 제목이나 설명
+- table의 첫번째 자식으로 사용해야 함
+
+thead, tbody, tfoot
+- 테이블의 머리글, 본문, 바닥글
+- 구역을 나누는 요소로 사용
+    > <tbody> : 테이블 데이터로 사용
+
+colspan, rowspan
+- 셀 병합 속성
+    > colspan : 열 병합
+    > rowspan : 행 병합
+
+id : 연결성
+name : 데이터를 전송할때의 키
+
+
+
+
+
+[CSS]
+- HTML의 스타일, 레이아웃 등을 꾸미는 역할
+- 한번 작성해서 여러 HTML에 재사용 할 수 있는 장점이 음
+- 브라우저마다 형식이 다를 수 있기 때문에 처음에 style을 초기화를 시켜주는 경우도 있음
+- id는 HTML 페이지 내에 유일해야 하기 때문에, 재 사용성이 떨어짐
+
+Selector{
+    property : Property value;
+}
+
+주석
+/* 주석 */
+
+CSS의 적용 방식
+- 인라인 방식
+    > 태그 자체에 style 속성으로 스타일을 주는 방식
+    > 일부 스타일 적용에 제한이 있음
+
+- 내부 스타일
+    > head 태그 안에 style 태그를 사용
+    > 코드가 길어질수록 파일 길이가 길어지기 때문에 비효율적
+
+- 외부 스타일
+    > CSS파일을 불러와서 HTML에 적용시킴
+    > 코드의 가독성과 효율성이 높아지므로 권장함
+    <link rel="stylesheet" href="css파일">
+
+CSS 상속
+- 개별로 인라인 스타일 적용
+    <div>
+    	<h1 style="color:red;">Hello</h1>
+    	<h2 style="color:red;">Hello</h2>
+    	<p style="color:red;">Hello</p>
+    </div>
+
+- 태그 선택자 적용
+    h1{color:red;}
+    h2{color:red;}
+    p {color:red;}
+
+- 그룹 선택자(,) 적용
+    h1, 
+    h2,
+    p {color:red;}
+
+- 상속 이용
+    div{
+    	color:red;
+    }
+
+- CSS에는 상속되지 않는 속성도 있음
+    > width, height, margin, padding, border 등
+
+- inherit
+    > 선택한 요소에 적용된 속성값을 부모와 동일하게 상속받음
+- initial
+    > 브라우저 기본 스타일 속성을 따름
+
+
+선택자
+- 전체 선택자(*)
+- 타입 선택자(태그 선택자, 요소 선택자)
+    > ex : h1, p ...
+- 아이디 선택자(#)
+    > HTML 내에 id는 유일해야 함
+    > HTML 내에서 한 번만 사용되기 떄문에 재사용성은 떨어짐
+    > 아이디 속성은 JavaScript 또는 해시 링크와 함께 사용되는 경우가 많음
+- 클래스 선택자(.)
+- 특성 선택자([])
+    > 주어진 특성을 가진 모든 요소 선택
+    > ex : [type="button"]
+- 그룹 선택자(,)
+    > ex : h1, h2, h3
+
+복합 선택자
+- 자손 선택자( )
+    > 자식, 자손 모두 선택 가능
+    > 공백, 띄어쓰기를 통해 구분
+    > section p {
+        border: 3px solid skyblue;
+    }
+
+- 자식 선택자 (>)
+    > 직계 자손만 선택
+    > section > p{
+        color:violet;
+    }
+
+- 일반 형제 선택자(~)
+    > 뒤에 나오는 형제만 선택
+    > h1 ~ p{
+        text-decoration:underline;
+    }
+
+- 인접 형제 선택자(+)
+    > 바로 뒤에 인접한 형제만 선택
+    > h1 + p{
+        background:yellow;
+    }
+
+- 가상 클래스 선택자
+    > 선택자에 추가하는 키워드로 선택한 요소가 특정 조건을 만족해야함
+    > :link     방문하지 않은 링크
+    > :visited  방문한 링크
+    > :hover    마우스 커서를 올려 놓았을 때
+    > :active   마우스로 클릭했을 때
+    > :focus    포커스 되었을 때
+
+- 구조적 가상 선택자
+    > :first-child  형제 요소 그룹 중 첫 번째 요소
+    > :last-child   형제 요소 그룹 중 마지막 요소
+    > :nth-child    형제 사이의 순서에 따라 요소 선택 가능
+    > :not          부정 선택자
+
+
+우선순위
+- 최종적으로 작성한 스타일이 적용됨
+- 구체적일수록 우선순위
+    > 가중치 (우선순위 순서)
+        → 1. inline 스타일 속성
+        → 2. id (#)
+        → 3. class (.), 가상 클래스, 속성선택자
+        → 4. type(tag), 가상 요소 선택자
+
+- important
+    > 0순위, 그 어떤 선언보다 우선
+    > CSS의 자연스러운 상속을 깨뜨리기 때문에 지양
+
+
+디스플레이 속성
+- block : 요소 전후에 줄 바꿈 생성
+- inline : 요소 전 후에 줄 바꿈을 생성하지 않는 인라인 요소 생성
+- inline-block : inline + block. 한 줄에 놓이지만, block처럼 width, height 등의 값 설정 가능
+- flex : 내부 자식 요소들의 위치를 부모 컨테이너 요소 안에서 x, y축 단방향(1차원적)으로 설정
+- grid : 내부 자식 요소들의 위치를 부모 컨테이너 요소 안에서 x, y축 모두 이용해 (2차원적) 설정
+- none : 접근성 트리에서 해당 요소 제거
+
+
+단위
+- 절대 길이 단위 (px)
+- 상대 길이 단위 (%, vw, vh, em, rem ...)
