@@ -15,6 +15,8 @@
         // txt[-1] // 안됩니다. undefined
         // txt[2:5] // 안됩니다.
 
+        txt.length
+
         txt.indexOf('o')
         txt.search('o')
 
@@ -25,8 +27,7 @@
         // search는 정규표현식이 가능합니다.
         let regExp = /[ea]llo/
         txt.search(regExp)
-
-        let regExp = /[ea]llo/
+        
         txt.indexOf(regExp)
 
         // slice(시작인덱스, 종료인덱스) : 시작인덱스부터 종료인덱스-1까지 반환합니다.
