@@ -11,11 +11,19 @@ urlpatterns = [
     # path("", Index.as_view()),
     path("", views.List.as_view(), name='list'), # /blog/
     # 글 상세 조회
-    path("detail/<int:pk>/", views.Detail.as_view(), name="detail"), # /blog/detail/1
+    path("detail/<int:pk>/", views.DetailView.as_view(), name="detail"), # /blog/detail/1
     # 글 작성
     path("write/", views.Write.as_view(), name='write'), # /blog/write
     # 글 수정
+    path("detail/<int:pk>/edit/", views.Update.as_view(), name="edit"),
     # 글 삭제
+    path("detail/<int:pk>/delete/", views.Delete.as_view(), name="delete"),
     # 코멘트 작성
+    path("detail/<int:pk>/comment/write", views.CommentWrite.as_view(), name='cm-write'),
     # 코멘트 삭제
+    path("detail/comment/<int:pk>/delete/", views.CommentDelete.as_view(), name='cm-delete'),
+    # 태그 작성
+    path("datail/<int:pk>/hashtag/write/", views.HashTagWrite.as_view(), name='tag-write'),
+    # 태그 삭제
+    path("datail/hashtag/<int:pk>/delete/", views.HashTagDelete.as_view(), name='tag-delete'),
 ]
