@@ -19,18 +19,18 @@ AUTH_USER_MODEL = 'user.User'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Login URL
+LOGIN_URL = '/user/login'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9&8*$$(tluw6e1$mni=rs6b4x9((*7u7*d!=o&yd@%r$ck9=%p'
+SECRET_KEY = 'django-insecure-9@o$2xraddb1(&2zw%pzgj^fyjd(vixj0#&^u4(=kj**+^^x56'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# 실제 서버를 배포할 때에는 False
 DEBUG = True
 
-# 접근할 수 있는 url 주소
 ALLOWED_HOSTS = []
 
 
@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# app>urls
 ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
@@ -112,15 +111,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-# LANGUAGE_CODE = 'en-US'
-LANGUAGE_CODE = 'ko-kr' # 한국어
+LANGUAGE_CODE = 'ko-kr'  # 한국어
 
 TIME_ZONE = 'Asia/Seoul' # 한국 시간
 
 USE_I18N = True
-
-# 1
-USE_L10N = True
 
 USE_TZ = True
 
